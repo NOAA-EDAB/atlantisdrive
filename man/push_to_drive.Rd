@@ -2,30 +2,34 @@
 % Please edit documentation in R/push_to_drive.R
 \name{push_to_drive}
 \alias{push_to_drive}
-\title{Renames, moves output files to and from googleDrive}
+\title{Pushes Atlantis output files to google Drive}
 \usage{
 push_to_drive(id, pathToOutput = here::here("output"), fileList,
-  googledriveFolder = "Development", rootid, overwrite = F)
+  googledriveFolder = "Development", rootid = atlantisdrive::rootid,
+  overwrite = F)
 }
 \arguments{
 \item{id}{Character string. Name of task/scenario/id associated with output.}
 
-\item{fileList}{Character vector. Files that need to be archived/or pulled on Google Drive}
+\item{fileList}{Character vector. Files that need to be archived on Google Drive}
 
-\item{googledriveFolder}{Character String. Name of directory on google Drive to push/pull. "Development" or "Scenarios" (Default = Development)}
+\item{googledriveFolder}{Character String. Name of directory on google Drive to push. "Development" or "Scenarios" (Default = Development)}
 
-\item{rootid}{Drive-id. Atlantis root id on google drive}
+\item{rootid}{Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)}
 
-\item{overwrite}{Boolean. Overwrite existing files in push/pull (Default = FALSE  and is very time consuming)}
+\item{overwrite}{Boolean. Overwrite existing files in push (Default = FALSE. This is very time consuming)}
 
-\item{filePath}{Character string. Path to local Atlantis output directory. Files will be pushed/pulled from/to this directtory}
+\item{filePath}{Character string. Path to local Atlantis output directory. Files will be pushed from this directtory}
 }
 \value{
 A vector of filenames. These are the files that were already present on Google Drive and were not overwritten. If overwrite = T, this will be NULL
 }
 \description{
-Used for archiving important Atlantis runs and for pulling these results back into the users workspace.
+Used for archiving important Atlantis runs.
  During development stage: filenames will be prefixed using the Jira task number.
  Once operational: file can be prefixed using scenario, scenario id, or pushed to a scenario folder on google Drive
+}
+\seealso{
+Other googldrive functions: \code{\link{pull_from_drive}}
 }
 \concept{googldrive functions}
