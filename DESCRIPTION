@@ -1,0 +1,19 @@
+Package: atlantisdrive
+Title: tools for Atlantis
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Andy",
+           family = "Beet",
+           role = c("aut", "cre"),
+           email = "andrew.beet@noaa.gov",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Pushes and pulls Atlantis files to and from google drive
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    here,
+    magrittr,
+    googledrive,
+    dplyr
+RoxygenNote: 6.1.1
