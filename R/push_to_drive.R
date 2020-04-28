@@ -21,7 +21,8 @@
 
 push_to_drive <- function(id, pathToOutput=here::here("output"),fileList,googledriveFolder="Development", rootid=atlantisdrive::rootid, overwrite = F){
 
-    # list the folders
+  # Detect/create folders ---------------------------------------------------
+  # list the folders
   atlantisFiles <- googledrive::drive_ls(rootid)
 
   # check to see if folder is present
@@ -52,7 +53,9 @@ push_to_drive <- function(id, pathToOutput=here::here("output"),fileList,googled
 
   }
 
-  # Push files to folder. check if already present. overwrite?
+
+  # Push Files to Drive ----------------------------------------------------
+  # check if already present. overwrite?
   # store list of files not pushed
   filesNotPushed <- NULL
   for (afile in fileList) {

@@ -12,17 +12,24 @@
 #'
 #' @importFrom magrittr "%>%"
 #'
-#' @return A vector of filenames. These are the files that were not present on Google Drive and were not pulled.
+#' @return Files are pulled to local drive
 #'
 #'@export
 
-pull_from_drive <- function(idstr=NA, pathToOutput=here::here(),fileList="match",googledriveFolder, rootid=atlantisdrive::rootid){
+pull_from_drive <- function(idstr=NA, pathToOutput=here::here(),fileList="match",googledriveFolder=NULL, rootid=atlantisdrive::rootid){
 
-  # error checks
+  # Error checks ------------------------------------------------------------
   if (length(fileList) <=1)
     if ((length(fileList) == 1) & (fileList == "match"))
       if(is.na(idstr))
         stop("if fileList = \"match\" then idstr can not be NA")
+
+  # googledrive folder cannot be empty\
+  if (is.null(googledriveFolder))
+    stop("You must specify a folder on google drive in which to pull files from. See googleDriveFolder argument")
+
+
+  # Detect folders ----------------------------------------------------------
 
   # list the folders
   atlantisFiles <- googledrive::drive_ls(rootid)
@@ -42,7 +49,9 @@ pull_from_drive <- function(idstr=NA, pathToOutput=here::here(),fileList="match"
     return(NULL)
   }
 
-  # Pull files from drive.
+
+  # Pull files from drive ---------------------------------------------------
+
   # store list of files not present on drive
   allFiles <- googledrive::drive_ls(atlantisid)
 
@@ -69,9 +78,6 @@ pull_from_drive <- function(idstr=NA, pathToOutput=here::here(),fileList="match"
       googledrive::drive_download(googledrive::as_id(fid),path=file.path(pathToOutput,filename),overwrite=T)
     }
   }
-
-
-return()
 
 
 }
