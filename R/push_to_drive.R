@@ -1,15 +1,15 @@
-#' Renames, moves output files to and from googleDrive
+#' Pushes Atlantis output files to google Drive
 #'
-#' Used for archiving important Atlantis runs and for pulling these results back into the users workspace.
+#' Used for archiving important Atlantis runs.
 #'  During development stage: filenames will be prefixed using the Jira task number.
 #'  Once operational: file can be prefixed using scenario, scenario id, or pushed to a scenario folder on google Drive
 #'
 #' @param id Character string. Name of task/scenario/id associated with output.
-#' @param filePath Character string. Path to local Atlantis output directory. Files will be pushed/pulled from/to this directtory
-#' @param fileList Character vector. Files that need to be archived/or pulled on Google Drive
-#' @param googledriveFolder Character String. Name of directory on google Drive to push/pull. "Development" or "Scenarios" (Default = Development)
+#' @param filePath Character string. Path to local Atlantis output directory. Files will be pushed from this directtory
+#' @param fileList Character vector. Files that need to be archived on Google Drive
+#' @param googledriveFolder Character String. Name of directory on google Drive to push. "Development" or "Scenarios" (Default = Development)
 #' @param rootid Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)
-#' @param overwrite Boolean. Overwrite existing files in push/pull (Default = FALSE  and is very time consuming)
+#' @param overwrite Boolean. Overwrite existing files in push (Default = FALSE. This is very time consuming)
 #'
 #' @family googldrive functions
 #'
