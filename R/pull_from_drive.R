@@ -2,9 +2,8 @@
 #'
 #' Used for pulling archived Atlantis runs into the users workspace.
 #'
-#' @param idstr Character string. A file name/part of a file name or simply a string of characters associated with output filenames. This will be used to search for file names to pull if no files are listed in \code{fileList}
 #' @param filePath Character string. Path to local Atlantis output directory. Files will be pulled to this directtory
-#' @param fileList Character vector. Files names that need to be pulled from Google Drive. You can search filenames by substring instead. Set fileList = "match". All filenames that match in part the string \code{idstr} will be pulled
+#' @param fileList Character vector. Files name(s) that need to be pulled from Google Drive. Alternatively any character string present in file name
 #' @param googledriveFolder Character String. Name of directory on google Drive to pull.
 #' @param rootid Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)
 #'
@@ -16,13 +15,13 @@
 #'
 #'@export
 
-pull_from_drive <- function(idstr=NA, pathToOutput=here::here(),fileList="match",googledriveFolder=NULL, rootid=atlantisdrive::rootid){
+pull_from_drive <- function(pathToOutput=here::here(),fileList,googledriveFolder=NULL, rootid=atlantisdrive::rootid){
 
   # Error checks ------------------------------------------------------------
-  if (length(fileList) <=1)
-    if ((length(fileList) == 1) & (fileList == "match"))
-      if(is.na(idstr))
-        stop("if fileList = \"match\" then idstr can not be NA")
+  # if (length(fileList) <=1)
+  #   if ((length(fileList) == 1) & (fileList == "match"))
+  #     if(is.na(idstr))
+  #       stop("if fileList = \"match\" then idstr can not be NA")
 
   # googledrive folder cannot be empty\
   if (is.null(googledriveFolder))
@@ -65,9 +64,9 @@ pull_from_drive <- function(idstr=NA, pathToOutput=here::here(),fileList="match"
       googledrive::drive_download(googledrive::as_id(fid),path=file.path(pathToOutput,filename),overwrite=T)
     }
 
-  } else if ((length(fileList) == 1) & (fileList == "match")) {
-    # pull everyhing with id
-    filesToPull <- allFiles %>% dplyr::filter(grepl(pattern=idstr,name))
+   } else if (length(fileList) == 1) {
+    # single file or a pattern to search
+    filesToPull <- allFiles %>% dplyr::filter(grepl(pattern=fileList,name))
 
     for (fid in filesToPull$id) {
       filename <- filesToPull %>%
