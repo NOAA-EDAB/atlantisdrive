@@ -4,22 +4,22 @@
 \alias{push_to_drive}
 \title{Pushes Atlantis output files to google Drive}
 \usage{
-push_to_drive(id, pathToOutput = here::here("output"), fileList,
-  googledriveFolder = "Development", rootid = atlantisdrive::rootid,
-  overwrite = F)
+push_to_drive(id = NULL, localPath = here::here("output"),
+  fileList = NULL, googledriveFolder = "Development",
+  rootid = atlantisdrive::rootid, overwrite = F)
 }
 \arguments{
-\item{id}{Character string. Name of task/scenario/id associated with output.}
+\item{id}{Character string. Name of task/scenario/id associated with output. Defualt = NULL (No prefix)}
 
-\item{fileList}{Character vector. Files that need to be archived on Google Drive}
+\item{localPath}{Character string. Path to local Atlantis output directory. Files will be pushed from this directtory}
+
+\item{fileList}{Character vector. Files that need to be archived on Google Drive. Specify file names in their entirety. Alternatively any character string present in file name. Default = NULL (all core files are pushed,see \code{\link{get_files}}). (Special case. fileList = NA, ALL files are pushed!)}
 
 \item{googledriveFolder}{Character String. Name of directory on google Drive to push. "Development" or "Scenarios" (Default = Development)}
 
 \item{rootid}{Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)}
 
 \item{overwrite}{Boolean. Overwrite existing files in push (Default = FALSE. This is very time consuming)}
-
-\item{filePath}{Character string. Path to local Atlantis output directory. Files will be pushed from this directtory}
 }
 \value{
 A vector of filenames. These are the files that were already present on Google Drive and were not overwritten. If overwrite = T, this will be NULL
@@ -28,6 +28,31 @@ A vector of filenames. These are the files that were already present on Google D
 Used for archiving important Atlantis runs.
  During development stage: filenames will be prefixed using the Jira task number.
  Once operational: file can be prefixed using scenario, scenario id, or pushed to a scenario folder on google Drive
+}
+\examples{
+
+\dontrun{
+#'# Pushes all files containing the string "2008" to the Development Folder on googledrive from the output folder on your current project, adds the prefix "Basin-2000" to each file and overwites all files found on google drive
+
+push_to_drive(id="Basin-2008",fileList="2008",googledriveFolder="Development",overwrite=T)
+
+# Pushes all xml files to the Development Folder on googledrive from the output folder on your current project, adds the prefix "ATLNTS-22" to each file and overwites all files found on google drive
+
+push_to_drive(id="ATLNTS-22",fileList="xml",googledriveFolder="Development",overwrite=T)
+
+# Pushes all core Atlantis files to the Presentation folder on google drive (prompts user to creates folder if neccesary) from "test" folder in current project. Adds the prefix "NEFMC" to  all uploaded files, overwrites.
+
+
+push_to_drive(id="NEFMC",localPath = here::here("test"),fileList=NULL,googledriveFolder="Presentation")
+
+# Pushes ALL files from "test" folder to "test" folder. No file prefix
+push_to_drive(localPath = here::here("test"), fileList = NA, googledriveFolder = "test", overwrite=T)
+
+
+}
+
+
+
 }
 \seealso{
 Other googldrive functions: \code{\link{pull_from_drive}}

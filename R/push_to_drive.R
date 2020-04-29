@@ -4,9 +4,9 @@
 #'  During development stage: filenames will be prefixed using the Jira task number.
 #'  Once operational: file can be prefixed using scenario, scenario id, or pushed to a scenario folder on google Drive
 #'
-#' @param id Character string. Name of task/scenario/id associated with output.
-#' @param filePath Character string. Path to local Atlantis output directory. Files will be pushed from this directtory
-#' @param fileList Character vector. Files that need to be archived on Google Drive
+#' @param id Character string. Name of task/scenario/id associated with output. Defualt = NULL (No prefix)
+#' @param localPath Character string. Path to local Atlantis output directory. Files will be pushed from this directtory
+#' @param fileList Character vector. Files that need to be archived on Google Drive. Specify file names in their entirety. Alternatively any character string present in file name. Default = NULL (all core files are pushed,see \code{\link{get_files}}). (Special case. fileList = NA, ALL files are pushed!)
 #' @param googledriveFolder Character String. Name of directory on google Drive to push. "Development" or "Scenarios" (Default = Development)
 #' @param rootid Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)
 #' @param overwrite Boolean. Overwrite existing files in push (Default = FALSE. This is very time consuming)
@@ -17,9 +17,33 @@
 #'
 #' @return A vector of filenames. These are the files that were already present on Google Drive and were not overwritten. If overwrite = T, this will be NULL
 #'
+#'@examples
+#'
+#'\dontrun{
+#'#'# Pushes all files containing the string "2008" to the Development Folder on googledrive from the output folder on your current project, adds the prefix "Basin-2000" to each file and overwites all files found on google drive
+#'
+#'push_to_drive(id="Basin-2008",fileList="2008",googledriveFolder="Development",overwrite=T)
+#'
+#'# Pushes all xml files to the Development Folder on googledrive from the output folder on your current project, adds the prefix "ATLNTS-22" to each file and overwites all files found on google drive
+#'
+#'push_to_drive(id="ATLNTS-22",fileList="xml",googledriveFolder="Development",overwrite=T)
+#'
+#'# Pushes all core Atlantis files to the Presentation folder on google drive (prompts user to creates folder if neccesary) from "test" folder in current project. Adds the prefix "NEFMC" to  all uploaded files, overwrites.
+#'
+#'
+#'push_to_drive(id="NEFMC",localPath = here::here("test"),fileList=NULL,googledriveFolder="Presentation")
+#'
+#'# Pushes ALL files from "test" folder to "test" folder. No file prefix
+#'push_to_drive(localPath = here::here("test"), fileList = NA, googledriveFolder = "test", overwrite=T)
+#'
+#'
+#'}
+#'
+#'
+#'
 #'@export
 
-push_to_drive <- function(id, pathToOutput=here::here("output"),fileList,googledriveFolder="Development", rootid=atlantisdrive::rootid, overwrite = F){
+push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,googledriveFolder="Development", rootid=atlantisdrive::rootid, overwrite = F){
 
   # Detect/create folders ---------------------------------------------------
   # list the folders
@@ -53,14 +77,28 @@ push_to_drive <- function(id, pathToOutput=here::here("output"),fileList,googled
 
   }
 
-
   # Push Files to Drive ----------------------------------------------------
   # check if already present. overwrite?
   # store list of files not pushed
+  if (is.null(fileList)) {# push all files
+    filesToPush <- get_files(path = localPath)
+  } else if (is.na(fileList)) {
+    filesToPush <- list.files(path = localPath)
+  } else if (length(fileList) == 1) { #either a single file or a string
+    allFiles <- list.files(path = localPath)
+    filesToPush <- allFiles[grepl(pattern=fileList,allFiles)]
+  } else { #list of specific filenames
+    filesToPush <- fileList
+  }
+
   filesNotPushed <- NULL
-  for (afile in fileList) {
-    uploadFile <- file.path(pathToOutput,afile)
-    newName <- paste0(id,"_",afile)
+  for (afile in filesToPush) {
+    uploadFile <- file.path(localPath,afile)
+    if (is.null(id)) {
+      newName <- afile
+    } else{
+      newName <- paste0(id,"_",afile)
+    }
     result <- tryCatch(
       {
         googledrive::drive_upload(uploadFile, path = atlantisid, name = newName, overwrite = overwrite)
