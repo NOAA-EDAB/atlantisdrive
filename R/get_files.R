@@ -1,4 +1,4 @@
-#' Create a list of files to be pushed to google drive
+#' Create a list of Core files used in Atlantis
 #'
 #' Compiles a list of file names based on file extension (e.g. nc, txt, ts, xml, bgm)
 #'
@@ -9,7 +9,7 @@
 #'
 #' @export
 
-get_files <- function(path= here::here("output"),filesToInclude = c("txt","nc","ts","xml","bgm")){
+get_files <- function(path= here::here(),filesToInclude = c("txt","nc","ts","xml","bgm")){
 
     fileList <- NULL
     for (aext in filesToInclude) {

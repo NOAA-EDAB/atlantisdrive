@@ -2,10 +2,10 @@
 % Please edit documentation in R/get_files.R
 \name{get_files}
 \alias{get_files}
-\title{Create a list of files to be pushed to google drive}
+\title{Create a list of Core files used in Atlantis}
 \usage{
-get_files(path = here::here("output"), filesToInclude = c("txt", "nc",
-  "ts", "xml", "bgm"))
+get_files(path = here::here(), filesToInclude = c("txt", "nc", "ts",
+  "xml", "bgm"))
 }
 \arguments{
 \item{path}{Character string. Path to location of atlantis output files}
