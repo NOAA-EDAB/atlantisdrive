@@ -4,25 +4,39 @@
 \alias{pull_from_drive}
 \title{Renames, moves output files from google Drive to local machine}
 \usage{
-pull_from_drive(id, pathToOutput = here::here("output"),
-  fileList = "all", googledriveFolder, rootid = atlantisdrive::rootid)
+pull_from_drive(localPath = here::here(), fileList, googledriveFolder,
+  rootid = atlantisdrive::rootid)
 }
 \arguments{
-\item{id}{Character string. Name of task/scenario/id associated with output.}
+\item{localPath}{Character string. Path to local Atlantis output directory. Files will be pulled to this directtory. Default = here::here()}
 
-\item{fileList}{Character vector. Files that need to be pulled from Google Drive. (Default = "all")}
+\item{fileList}{Character vector. Files name(s) that need to be pulled from Google Drive. Alternatively any character string present in file name}
 
 \item{googledriveFolder}{Character String. Name of directory on google Drive to pull.}
 
 \item{rootid}{Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)}
-
-\item{filePath}{Character string. Path to local Atlantis output directory. Files will be pulled to this directtory}
 }
 \value{
-A vector of filenames. These are the files that were not present on Google Drive and were not pulled.
+Files are pulled to local drive
 }
 \description{
 Used for pulling archived Atlantis runs into the users workspace.
+}
+\examples{
+
+\dontrun{
+# Pulls all xml files from the Development Folder to your current working directory
+pull_from_drive(fileList="xml",googledriveFolder="Development")
+
+# Pulls all files with the string "ATLNTS-2" present in its filename to the "output" folder in your project
+pull_from_drive(localPath = here::here("output"),fileList="ATLNTS-2",googledriveFolder="Development")
+
+# Pulls selected files from the Scenario Folder
+filesToPull <- c("file1.jpg","file2.txt","file3.bmg")
+pull_from_drive(fileList=filesToPull,googledriveFolder="Scenario")
+
+}
+
 }
 \seealso{
 Other googldrive functions: \code{\link{push_to_drive}}
