@@ -11,7 +11,7 @@
 #' @param rootid Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)
 #' @param overwrite Boolean. Overwrite existing files in push (Default = FALSE. This is very time consuming)
 #'
-#' @family googldrive functions
+#' @family atlantisdrive functions
 #'
 #' @importFrom magrittr "%>%"
 #'
@@ -81,7 +81,7 @@ push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,
   # check if already present. overwrite?
   # store list of files not pushed
   if (is.null(fileList)) {# push all files
-    filesToPush <- get_files(path = localPath)
+    filesToPush <- list_core_files(path = localPath)
   } else if (is.na(fileList)) {
     filesToPush <- list.files(path = localPath)
   } else if (length(fileList) == 1) { #either a single file or a string

@@ -7,7 +7,7 @@
 #'
 #' @return A character vector containing the names of all of the files to be copied to the google drive
 #'
-#' @family googldrive functions
+#' @family atlantisdrive functions
 #'
 #' @export
 

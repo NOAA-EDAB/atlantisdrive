@@ -7,7 +7,7 @@
 #' @param googledriveFolder Character String. Name of directory on google Drive to pull.
 #' @param rootid Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package)
 #'
-#' @family googldrive functions
+#' @family atlantisdrive functions
 #'
 #' @importFrom magrittr "%>%"
 #'
