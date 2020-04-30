@@ -55,8 +55,8 @@ push_to_drive(localPath = here::here("test"), fileList = NA, googledriveFolder =
 
 }
 \seealso{
-Other googldrive functions: \code{\link{get_dirs}},
+Other atlantisdrive functions: \code{\link{get_dirs}},
   \code{\link{get_files}}, \code{\link{list_core_files}},
   \code{\link{pull_from_drive}}
 }
-\concept{googldrive functions}
+\concept{atlantisdrive functions}

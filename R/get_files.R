@@ -8,6 +8,15 @@
 #'
 #' @family atlantisdrive functions
 #'
+#' @examples
+#'\dontrun{
+#' # get list of files in the Scenario folder under the root
+#' get_files(targetDir = "Scenario")
+#' get_files(targetDir = "Scen")
+#' get_files(targetDir = "ario")
+#'
+#'}
+#'
 #' @export
 
 get_files <- function(rootid=atlantisdrive::rootid,targetDir){

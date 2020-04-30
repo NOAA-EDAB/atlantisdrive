@@ -7,7 +7,7 @@
 get_dirs(rootid = atlantisdrive::rootid)
 }
 \arguments{
-\item{@param}{rootid Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package}
+\item{rootid}{Drive-id. Atlantis root id on google drive. (Default id for NEFSC is bundled in this package}
 }
 \value{
 A tibble containing folder names, id, etc
@@ -15,10 +15,17 @@ A tibble containing folder names, id, etc
 \description{
 Lists all folders under the root google drive folder
 }
+\examples{
+\dontrun{
+# get list of directories under the root
+get_dirs()
+}
+
+}
 \seealso{
-Other googldrive functions: \code{\link{get_files}},
+Other atlantisdrive functions: \code{\link{get_files}},
   \code{\link{list_core_files}},
   \code{\link{pull_from_drive}},
   \code{\link{push_to_drive}}
 }
-\concept{googldrive functions}
+\concept{atlantisdrive functions}

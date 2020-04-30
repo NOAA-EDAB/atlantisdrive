@@ -9,6 +9,16 @@
 #'
 #' @family atlantisdrive functions
 #'
+#' @examples
+#' \dontrun{
+#' # create a list of all xml files in your projects "output" folder
+#' list_core_files(path=here::here("output"),filesToInclude=c("xml"))
+#'
+#' # create a list of all xml and ts files in your projects "test" folder
+#' list_core_files(path=here::here("test"),filesToInclude=c("xml","ts"))
+#'
+#' }
+#'
 #' @export
 
 list_core_files <- function(path= here::here(),filesToInclude = c("txt","nc","ts","xml","bgm")){

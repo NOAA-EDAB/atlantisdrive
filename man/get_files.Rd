@@ -12,10 +12,20 @@ A tibble containing file name, id etc.
 \description{
 Lists all files under a directory on google drive folder
 }
+\examples{
+\dontrun{
+# get list of files in the Scenario folder under the root
+get_files(targetDir = "Scenario")
+get_files(targetDir = "Scen")
+get_files(targetDir = "ario")
+
+}
+
+}
 \seealso{
-Other googldrive functions: \code{\link{get_dirs}},
+Other atlantisdrive functions: \code{\link{get_dirs}},
   \code{\link{list_core_files}},
   \code{\link{pull_from_drive}},
   \code{\link{push_to_drive}}
 }
-\concept{googldrive functions}
+\concept{atlantisdrive functions}

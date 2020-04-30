@@ -18,9 +18,20 @@ A character vector containing the names of all of the files to be copied to the 
 \description{
 Compiles a list of file names based on file extension (e.g. nc, txt, ts, xml, bgm)
 }
+\examples{
+\dontrun{
+# create a list of all xml files in your projects "output" folder
+list_core_files(path=here::here("output"),filesToInclude=c("xml"))
+
+# create a list of all xml and ts files in your projects "test" folder
+list_core_files(path=here::here("test"),filesToInclude=c("xml","ts"))
+
+}
+
+}
 \seealso{
-Other googldrive functions: \code{\link{get_dirs}},
+Other atlantisdrive functions: \code{\link{get_dirs}},
   \code{\link{get_files}}, \code{\link{pull_from_drive}},
   \code{\link{push_to_drive}}
 }
-\concept{googldrive functions}
+\concept{atlantisdrive functions}

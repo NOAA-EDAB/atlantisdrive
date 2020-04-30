@@ -8,6 +8,12 @@
 #'
 #' @family atlantisdrive functions
 #'
+#' @examples
+#'\dontrun{
+#' # get list of directories under the root
+#' get_dirs()
+#'}
+#'
 #' @export
 
 get_dirs <- function(rootid=atlantisdrive::rootid){
