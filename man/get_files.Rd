@@ -2,19 +2,20 @@
 % Please edit documentation in R/get_files.R
 \name{get_files}
 \alias{get_files}
-\title{Create a list of Core files used in Atlantis}
+\title{Get list of files with a diresctory on google drive}
 \usage{
-get_files(path = here::here(), filesToInclude = c("txt", "nc", "ts",
-  "xml", "bgm"))
-}
-\arguments{
-\item{path}{Character string. Path to location of atlantis output files}
-
-\item{filesToInclude}{Character vector. Types of files to copy (Default = ("txt","nc","ts","xml","bgm"))}
+get_files(rootid = atlantisdrive::rootid, targetDir)
 }
 \value{
-A character vector containing the names of all of the files to be copied to the google drive
+A tibble containing file name, id etc.
 }
 \description{
-Compiles a list of file names based on file extension (e.g. nc, txt, ts, xml, bgm)
+Lists all files under a directory on google drive folder
 }
+\seealso{
+Other googldrive functions: \code{\link{get_dirs}},
+  \code{\link{list_core_files}},
+  \code{\link{pull_from_drive}},
+  \code{\link{push_to_drive}}
+}
+\concept{googldrive functions}
