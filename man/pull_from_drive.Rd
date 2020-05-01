@@ -40,7 +40,9 @@ pull_from_drive(fileList=filesToPull,googledriveFolder="Scenario")
 }
 \seealso{
 Other atlantisdrive functions: \code{\link{get_dirs}},
-  \code{\link{get_files}}, \code{\link{list_core_files}},
+  \code{\link{get_files}},
+  \code{\link{list_atlantisom_files}},
+  \code{\link{list_core_files}},
   \code{\link{push_to_drive}}
 }
 \concept{atlantisdrive functions}

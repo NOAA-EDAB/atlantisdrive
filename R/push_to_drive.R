@@ -105,7 +105,7 @@ push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,
         res <- TRUE
       },
       error = function(e){
-        message(afile," already exists for task ",taskid)
+        message(afile," already exists for task ",id)
         return(FALSE)
       } ,
       warning = function(w) return(FALSE)

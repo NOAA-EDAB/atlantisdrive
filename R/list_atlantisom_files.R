@@ -12,16 +12,16 @@
 #' \dontrun{
 #' # create a list of atlantisom input files for Norweigan Barents Sea model
 #' atlantisom_outfilelist(scenario="nordic_runresults_01")
-#' 
+#'
 #' # create a list of atlantisom input files for California Current model
 #' atlantisom_outfilelist(scenario="outputCCV3")
-#' 
+#'
 #' }
 #'
 #' @export
 
-atlantisom_outfilelist <- function(scenario)){
-  
+list_atlantisom_files <- function(scenario) {
+
   fileList <- NULL
   fileList <- c(paste0(scenario, ".nc"),
                 paste0(scenario, "CATCH.nc"),
@@ -36,5 +36,5 @@ atlantisom_outfilelist <- function(scenario)){
                 )
 
   return(fileList)
-  
+
 }

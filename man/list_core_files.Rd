@@ -31,7 +31,9 @@ list_core_files(path=here::here("test"),filesToInclude=c("xml","ts"))
 }
 \seealso{
 Other atlantisdrive functions: \code{\link{get_dirs}},
-  \code{\link{get_files}}, \code{\link{pull_from_drive}},
+  \code{\link{get_files}},
+  \code{\link{list_atlantisom_files}},
+  \code{\link{pull_from_drive}},
   \code{\link{push_to_drive}}
 }
 \concept{atlantisdrive functions}

@@ -2,6 +2,7 @@
 
 export(get_dirs)
 export(get_files)
+export(list_atlantisom_files)
 export(list_core_files)
 export(pull_from_drive)
 export(push_to_drive)
