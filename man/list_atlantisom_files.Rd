@@ -18,10 +18,10 @@ Compiles a list of file names based on user input scenario and required atlantis
 \examples{
 \dontrun{
 # create a list of atlantisom input files for Norweigan Barents Sea model
-atlantisom_outfilelist(scenario="nordic_runresults_01")
+list_atlantisom_files(scenario="nordic_runresults_01")
 
 # create a list of atlantisom input files for California Current model
-atlantisom_outfilelist(scenario="outputCCV3")
+list_atlantisom_files(scenario="outputCCV3")
 
 }
 
