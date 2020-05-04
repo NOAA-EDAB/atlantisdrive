@@ -5,7 +5,8 @@ Authors@R:
     c(person(given = "Andy", family = "Beet", role = c("aut", "cre"), email = "andrew.beet@noaa.gov"),
     person(given = "Joe", family = "Caracappa", role = c("aut"), email = "joseph.caracappa@noaa.gov"),
     person(given = "Rob", family = "Gamble", role = c("aut"), email = "robert.gamble@noaa.gov"),
-    person(given = "Scott", family = "Large", role = c("aut"), email = "scott.large@noaa.gov"))
+    person(given = "Scott", family = "Large", role = c("aut"), email = "scott.large@noaa.gov"),
+    person(given = "Sarah", family = "Gaichas", role = c("aut"), email = "sarah.gaichase@noaa.gov"))
 Description: Push and pull Atlantis files to and from google drive
 License: What license it uses
 Encoding: UTF-8
