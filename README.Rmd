@@ -1,0 +1,72 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# atlantisdrive
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Tools for moving Atlantis files to and from google drive
+
+## Installation
+
+``` r
+remotes::install_github("andybeet/atlantisdrive",build_vignettes = TRUE)
+```
+
+## Usage
+
+
+```{r}
+library(atlantisdrive)
+```
+
+To view the list of folders under the root folder on google drive. The id of the root folder is lazily loaded with `atlantisdrive` and used as the default argument
+
+```{r}
+get_dirs()
+```
+
+
+To view the content of one of these folders:
+
+```{r}
+get_files(targetDir = "Development")
+```
+
+To pull files from this folder to your local machine (Note: partial matches to file names are allowed)
+
+```{r, eval = FALSE}
+pull_from_drive(localPath=here::here(),fileList="ATLNT",googledriveFolder="Development")
+```
+
+To push files from your current working directory to google drive (Note: partial matches to file names are allowed). Push to "Development" folder on google drive
+
+```{r, eval = FALSE}
+push_to_drive(id=NULL, localPath=here::here(), fileList=NULL, googledriveFolder="Development", rootid=atlantisdrive::rootid, overwrite = TRUE)
+```
+
+Note: special case when `fileList = NULL`. All Atlantis core files are pushed.
+
+To list all Atlantis core files that currently reside in your working directory
+
+```{r}
+list_core_files(path=here::here())
+```
+
+To list all files (from scenario "ATLNTS-1") required for atlantisom. 
+
+```{r}
+list_atlantisom_files(scenario="ATLNTS-1")
+```
