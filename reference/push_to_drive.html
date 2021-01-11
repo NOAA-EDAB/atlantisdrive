@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pushes Atlantis output files to google Drive — push_to_drive • atlantisdrive</title>
+<title>Pushes Atlantis output files to Google Drive — push_to_drive • atlantisdrive</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Pushes Atlantis output files to google Drive — push_to_drive" />
+<meta property="og:title" content="Pushes Atlantis output files to Google Drive — push_to_drive" />
 <meta property="og:description" content="Used for archiving important Atlantis runs.
  During development stage: filenames will be prefixed using the Jira task number.
  Once operational: file can be prefixed using scenario, scenario id, or pushed to a scenario folder on google Drive" />
@@ -105,7 +105,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pushes Atlantis output files to google Drive</h1>
+    <h1>Pushes Atlantis output files to Google Drive</h1>
     
     <div class="hidden name"><code>push_to_drive.Rd</code></div>
     </div>
@@ -121,7 +121,7 @@
   localPath <span class='op'>=</span> <span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"output"</span><span class='op'>)</span>,
   fileList <span class='op'>=</span> <span class='cn'>NULL</span>,
   googledriveFolder <span class='op'>=</span> <span class='st'>"Development"</span>,
-  rootid <span class='op'>=</span> <span class='fu'>atlantisdrive</span><span class='fu'>::</span><span class='va'><a href='rootid.html'>rootid</a></span>,
+  rootid <span class='op'>=</span> <span class='fu'>atlantisdrive</span><span class='fu'>::</span><span class='va'>rootid</span>,
   overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
@@ -138,7 +138,7 @@
     </tr>
     <tr>
       <th>fileList</th>
-      <td><p>Character vector. Files that need to be archived on Google Drive. Specify file names in their entirety. Alternatively any character string present in file name. Default = NULL (all core files are pushed, see <code><a href='get_files.html'>get_files</a></code>). (Special case. fileList = NA, ALL files are pushed!)</p></td>
+      <td><p>Character vector. Files that need to be archived on Google Drive. Specify file names in their entirety. Alternatively any character string present in file name. Default = NULL (all core files are pushed, see <code>get_files</code>). (Special case. fileList = NA, ALL files are pushed!)</p></td>
     </tr>
     <tr>
       <th>googledriveFolder</th>
@@ -161,8 +161,7 @@
 
     <div class='dont-index'><p>Other atlantisdrive functions: 
 <code><a href='gd_exists.html'>gd_exists</a>()</code>,
-<code><a href='get_dirs.html'>get_dirs</a>()</code>,
-<code><a href='get_files.html'>get_files</a>()</code>,
+<code><a href='get_file_list.html'>get_file_list</a>()</code>,
 <code><a href='list_atlantisom_files.html'>list_atlantisom_files</a>()</code>,
 <code><a href='list_core_files.html'>list_core_files</a>()</code>,
 <code><a href='pull_from_drive.html'>pull_from_drive</a>()</code></p></div>

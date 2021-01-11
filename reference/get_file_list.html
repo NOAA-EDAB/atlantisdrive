@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>List of Core files used in Atlantis — list_core_files • atlantisdrive</title>
+<title>Get list of files with a directory on Google drive — get_file_list • atlantisdrive</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="List of Core files used in Atlantis — list_core_files" />
-<meta property="og:description" content="Compiles a list of file names based on file extension (e.g. nc, txt, ts, xml, bgm)" />
+<meta property="og:title" content="Get list of files with a directory on Google drive — get_file_list" />
+<meta property="og:description" content="Lists all files under a directory on Google drive folder" />
 
 
 
@@ -103,52 +103,54 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>List of Core files used in Atlantis</h1>
+    <h1>Get list of files with a directory on Google drive</h1>
     
-    <div class="hidden name"><code>list_core_files.Rd</code></div>
+    <div class="hidden name"><code>get_file_list.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Compiles a list of file names based on file extension (e.g. nc, txt, ts, xml, bgm)</p>
+    <p>Lists all files under a directory on Google drive folder</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_core_files</span><span class='op'>(</span>
-  path <span class='op'>=</span> <span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='op'>)</span>,
-  filesToInclude <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"txt"</span>, <span class='st'>"nc"</span>, <span class='st'>"ts"</span>, <span class='st'>"xml"</span>, <span class='st'>"bgm"</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_file_list</span><span class='op'>(</span>rootid <span class='op'>=</span> <span class='fu'>atlantisdrive</span><span class='fu'>::</span><span class='va'>rootid</span>, targetDir <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path</th>
-      <td><p>Character string. Path to location of atlantis output files</p></td>
+      <th>rootid</th>
+      <td><p>Drive-id. The id to the root Atlantis Folder</p></td>
     </tr>
     <tr>
-      <th>filesToInclude</th>
-      <td><p>Character vector. Types of files to copy (Default = ("txt","nc","ts","xml","bgm"))</p></td>
+      <th>targetDir</th>
+      <td><p>Character. Path to a directory. Default = NULL - returns all files in root</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector containing the names of all of the files to be copied to the google drive</p>
+    <p>A tibble containing file name details</p>
+<dt>name</dt><dd><p>Folder/filename</p></dd>
+<dt>id</dt><dd><p>Drive id of folder/filename</p></dd>
+<dt>drive_resource</dt><dd><p>list of 33 objects defind in [googledrive](drive_ls)</p></dd>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other atlantisdrive functions: 
 <code><a href='gd_exists.html'>gd_exists</a>()</code>,
-<code><a href='get_file_list.html'>get_file_list</a>()</code>,
 <code><a href='list_atlantisom_files.html'>list_atlantisom_files</a>()</code>,
+<code><a href='list_core_files.html'>list_core_files</a>()</code>,
 <code><a href='pull_from_drive.html'>pull_from_drive</a>()</code>,
 <code><a href='push_to_drive.html'>push_to_drive</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># create a list of all xml files in your projects "output" folder</span>
-<span class='fu'>list_core_files</span><span class='op'>(</span>path<span class='op'>=</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"output"</span><span class='op'>)</span>,filesToInclude<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"xml"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'># create a list of all xml and ts files in your projects "test" folder</span>
-<span class='fu'>list_core_files</span><span class='op'>(</span>path<span class='op'>=</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"test"</span><span class='op'>)</span>,filesToInclude<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"xml"</span>,<span class='st'>"ts"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># get list of files in the Scenario folder under the root</span>
+<span class='fu'>get_file_list</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"Testing/Model1"</span><span class='op'>)</span>
+<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"Scenario"</span><span class='op'>)</span>
+<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"Scen"</span><span class='op'>)</span>
+<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"ario"</span><span class='op'>)</span>
 
 <span class='op'>}</span>
 

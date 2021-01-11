@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https:/andybeet.github.io/atlantisdrive//index.html</loc>
+  </url>
+  <url>
+    <loc>https:/andybeet.github.io/atlantisdrive//reference/gd_exists.html</loc>
+  </url>
+  <url>
+    <loc>https:/andybeet.github.io/atlantisdrive//reference/get_file_list.html</loc>
+  </url>
+  <url>
+    <loc>https:/andybeet.github.io/atlantisdrive//reference/list_atlantisom_files.html</loc>
+  </url>
+  <url>
+    <loc>https:/andybeet.github.io/atlantisdrive//reference/list_core_files.html</loc>
+  </url>
+  <url>
+    <loc>https:/andybeet.github.io/atlantisdrive//reference/pull_from_drive.html</loc>
+  </url>
+  <url>
+    <loc>https:/andybeet.github.io/atlantisdrive//reference/push_to_drive.html</loc>
+  </url>
+</urlset>
