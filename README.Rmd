@@ -12,12 +12,14 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # atlantisdrive
 
 <!-- badges: start -->
+![deploy to github pages](https://github.com/andybeet/atlantisdrive/workflows/deploy%20to%20github%20pages/badge.svg)
 <!-- badges: end -->
 
-Tools for moving Atlantis files to and from google drive
+Tools for moving Atlantis files to and from Google drive
 
 ## Installation
 
@@ -27,46 +29,46 @@ remotes::install_github("andybeet/atlantisdrive")
 
 ## Usage
 
-
 ```{r}
 library(atlantisdrive)
 ```
 
-To view the list of folders under the root folder on google drive. The id of the root folder is lazily loaded with `atlantisdrive` and used as the default argument
+To view the list of files/folders under the root folder (as defined by `id`) on Google drive use
 
-```{r}
-get_dirs()
+```{r, echo=T, eval = F}
+get_file_list()
+get_file_list(targetDir = "Development")
+get_file_list(targetDir = "Development/Example")
 ```
 
+To pull all files containing the string "ATLNT" from the "Development" folder to your local machine (Note: partial matches to file names are allowed)
 
-To view the content of one of these folders:
-
-```{r}
-get_files(targetDir = "Development")
-```
-
-To pull files from this folder to your local machine (Note: partial matches to file names are allowed)
-
-```{r, eval = FALSE}
+```{r, echo = T, eval = F}
 pull_from_drive(localPath=here::here(),fileList="ATLNT",googledriveFolder="Development")
 ```
 
-To push files from your current working directory to google drive (Note: partial matches to file names are allowed). Push to "Development" folder on google drive
+To push all files from your "output" folder in your current working directory to the "Testing/Example" folder on Google drive (Note: partial matches to file names are allowed). All files are overwritten.
 
-```{r, eval = FALSE}
-push_to_drive(id=NULL, localPath=here::here(), fileList=NULL, googledriveFolder="Development", rootid=atlantisdrive::rootid, overwrite = TRUE)
+```{r, echo = T, eval = F}
+push_to_drive(id=NULL, localPath=here::here("output"), fileList=NULL, googledriveFolder="Testing/Example", rootid=atlantisdrive::rootid, overwrite = TRUE)
 ```
 
 Note: special case when `fileList = NULL`. All Atlantis core files are pushed.
 
+To push all files containing the string "xml" from your "output" folder in your current working directory to the "Testing/Example" folder on Google drive. Appends the string "climate" to beginning of all files
+
+```{r, echo=T , eval = F}
+push_to_drive(id="climate", localPath=here::here("output"), fileList="xml", googledriveFolder="Testing/Example", rootid=atlantisdrive::rootid, overwrite = TRUE)
+```
+
 To list all Atlantis core files that currently reside in your working directory
 
-```{r}
+```{r,echo=T, eval = T}
 list_core_files(path=here::here())
 ```
 
-To list all files (from scenario "ATLNTS-1") required for atlantisom. 
+To list all files (from scenario "ATLNTS-1") required for atlantisom.
 
-```{r}
+```{r,echo=T, eval = T}
 list_atlantisom_files(scenario="ATLNTS-1")
 ```
