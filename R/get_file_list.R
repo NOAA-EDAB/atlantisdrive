@@ -3,7 +3,7 @@
 #' Lists all files under a directory on Google drive folder
 #'
 #' @param rootid Drive-id. The id to the root Atlantis Folder
-#' @param targetDir Character. Path to a directory
+#' @param targetDir Character. Path to a directory. Default = NULL - returns all files in root
 #'
 #' @return A tibble containing file name details
 #' \item{name}{Folder/filename}
@@ -17,9 +17,11 @@
 #' @examples
 #'\dontrun{
 #' # get list of files in the Scenario folder under the root
-#' get_files(targetDir = "Scenario")
-#' get_files(targetDir = "Scen")
-#' get_files(targetDir = "ario")
+#' get_file_list()
+#' get_file_list(targetDir = "Testing/Model1")
+#' get_file_list(targetDir = "Scenario")
+#' get_file_list(targetDir = "Scen")
+#' get_file_list(targetDir = "ario")
 #'
 #'}
 #'
