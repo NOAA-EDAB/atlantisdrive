@@ -61,14 +61,3 @@ To push all files containing the string "xml" from your "output" folder in your 
 push_to_drive(id="climate", localPath=here::here("output"), fileList="xml", googledriveFolder="Testing/Example", rootid=atlantisdrive::rootid, overwrite = TRUE)
 ```
 
-To list all Atlantis core files that currently reside in your working directory
-
-```{r,echo=T, eval = T}
-list_core_files(path=here::here())
-```
-
-To list all files (from scenario "ATLNTS-1") required for atlantisom.
-
-```{r,echo=T, eval = T}
-list_atlantisom_files(scenario="ATLNTS-1")
-```

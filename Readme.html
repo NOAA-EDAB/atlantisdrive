@@ -624,15 +624,6 @@ body {
 <p>Note: special case when <code>fileList = NULL</code>. All Atlantis core files are pushed.</p>
 <p>To push all files containing the string “xml” from your “output” folder in your current working directory to the “Testing/Example” folder on Google drive. Appends the string “climate” to beginning of all files</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">push_to_drive</span>(<span class="at">id=</span><span class="st">&quot;climate&quot;</span>, <span class="at">localPath=</span>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;output&quot;</span>), <span class="at">fileList=</span><span class="st">&quot;xml&quot;</span>, <span class="at">googledriveFolder=</span><span class="st">&quot;Testing/Example&quot;</span>, <span class="at">rootid=</span>atlantisdrive<span class="sc">::</span>rootid, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>To list all Atlantis core files that currently reside in your working directory</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_core_files</span>(<span class="at">path=</span>here<span class="sc">::</span><span class="fu">here</span>())</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; character(0)</span></span></code></pre></div>
-<p>To list all files (from scenario “ATLNTS-1”) required for atlantisom.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_atlantisom_files</span>(<span class="at">scenario=</span><span class="st">&quot;ATLNTS-1&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;ATLNTS-1.nc&quot;                 &quot;ATLNTS-1CATCH.nc&quot;            &quot;ATLNTS-1PROD.nc&quot;            </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [4] &quot;ATLNTS-1ANNAGEBIO.nc&quot;        &quot;ATLNTS-1ANNAGECATCH.nc&quot;      &quot;ATLNTS-1BiomIndx.txt&quot;       </span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;ATLNTS-1Catch.txt&quot;           &quot;ATLNTS-1CatchPerFishery.txt&quot; &quot;ATLNTS-1DietCheck.txt&quot;      </span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] &quot;ATLNTS-1YOY.txt&quot;</span></span></code></pre></div>
 
 </body>
 </html>

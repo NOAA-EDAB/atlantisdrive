@@ -58,21 +58,3 @@ Google drive. Appends the string “climate” to beginning of all files
 ``` r
 push_to_drive(id="climate", localPath=here::here("output"), fileList="xml", googledriveFolder="Testing/Example", rootid=atlantisdrive::rootid, overwrite = TRUE)
 ```
-
-To list all Atlantis core files that currently reside in your working
-directory
-
-``` r
-list_core_files(path=here::here())
-#> character(0)
-```
-
-To list all files (from scenario “ATLNTS-1”) required for atlantisom.
-
-``` r
-list_atlantisom_files(scenario="ATLNTS-1")
-#>  [1] "ATLNTS-1.nc"                 "ATLNTS-1CATCH.nc"            "ATLNTS-1PROD.nc"            
-#>  [4] "ATLNTS-1ANNAGEBIO.nc"        "ATLNTS-1ANNAGECATCH.nc"      "ATLNTS-1BiomIndx.txt"       
-#>  [7] "ATLNTS-1Catch.txt"           "ATLNTS-1CatchPerFishery.txt" "ATLNTS-1DietCheck.txt"      
-#> [10] "ATLNTS-1YOY.txt"
-```
