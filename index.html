@@ -91,17 +91,6 @@
 <p>To push all files containing the string “xml” from your “output” folder in your current working directory to the “Testing/Example” folder on Google drive. Appends the string “climate” to beginning of all files</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/push_to_drive.html">push_to_drive</a></span><span class="op">(</span>id<span class="op">=</span><span class="st">"climate"</span>, localPath<span class="op">=</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"output"</span><span class="op">)</span>, fileList<span class="op">=</span><span class="st">"xml"</span>, googledriveFolder<span class="op">=</span><span class="st">"Testing/Example"</span>, rootid<span class="op">=</span><span class="fu">atlantisdrive</span><span class="fu">::</span><span class="va">rootid</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p>To list all Atlantis core files that currently reside in your working directory</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/list_core_files.html">list_core_files</a></span><span class="op">(</span>path<span class="op">=</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; character(0)</span></code></pre></div>
-<p>To list all files (from scenario “ATLNTS-1”) required for atlantisom.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/list_atlantisom_files.html">list_atlantisom_files</a></span><span class="op">(</span>scenario<span class="op">=</span><span class="st">"ATLNTS-1"</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "ATLNTS-1.nc"                 "ATLNTS-1CATCH.nc"            "ATLNTS-1PROD.nc"            </span>
-<span class="co">#&gt;  [4] "ATLNTS-1ANNAGEBIO.nc"        "ATLNTS-1ANNAGECATCH.nc"      "ATLNTS-1BiomIndx.txt"       </span>
-<span class="co">#&gt;  [7] "ATLNTS-1Catch.txt"           "ATLNTS-1CatchPerFishery.txt" "ATLNTS-1DietCheck.txt"      </span>
-<span class="co">#&gt; [10] "ATLNTS-1YOY.txt"</span></code></pre></div>
 </div>
 </div>
   </div>
