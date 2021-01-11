@@ -2,7 +2,7 @@
 % Please edit documentation in R/pull_from_drive.R
 \name{pull_from_drive}
 \alias{pull_from_drive}
-\title{Renames, moves output files from google Drive to local machine}
+\title{Renames, moves output files from Google Drive to local machine}
 \usage{
 pull_from_drive(
   localPath = here::here(),
@@ -45,8 +45,7 @@ pull_from_drive(fileList=filesToPull,googledriveFolder="Scenario")
 \seealso{
 Other atlantisdrive functions: 
 \code{\link{gd_exists}()},
-\code{\link{get_dirs}()},
-\code{\link{get_files}()},
+\code{\link{get_file_list}()},
 \code{\link{list_atlantisom_files}()},
 \code{\link{list_core_files}()},
 \code{\link{push_to_drive}()}

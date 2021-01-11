@@ -2,7 +2,7 @@
 % Please edit documentation in R/push_to_drive.R
 \name{push_to_drive}
 \alias{push_to_drive}
-\title{Pushes Atlantis output files to google Drive}
+\title{Pushes Atlantis output files to Google Drive}
 \usage{
 push_to_drive(
   id = NULL,
@@ -62,8 +62,7 @@ push_to_drive(localPath = here::here("test"), fileList = NA, googledriveFolder =
 \seealso{
 Other atlantisdrive functions: 
 \code{\link{gd_exists}()},
-\code{\link{get_dirs}()},
-\code{\link{get_files}()},
+\code{\link{get_file_list}()},
 \code{\link{list_atlantisom_files}()},
 \code{\link{list_core_files}()},
 \code{\link{pull_from_drive}()}

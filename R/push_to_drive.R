@@ -1,4 +1,4 @@
-#' Pushes Atlantis output files to google Drive
+#' Pushes Atlantis output files to Google Drive
 #'
 #' Used for archiving important Atlantis runs.
 #'  During development stage: filenames will be prefixed using the Jira task number.

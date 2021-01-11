@@ -12,29 +12,23 @@ gd_exists(googledriveFolder, rootid)
 \item{rootid}{Drive-id. Root id on google drive in which \code{googleDriveFolder} is nested}
 }
 \value{
-A list of 2 items. If \code{googleDriveFolder} is present, its \code{id} is returned with \code{isfound} = T.
+A list of two items. If \code{googleDriveFolder} is present, its \code{id} is returned with \code{isfound} = T.
 If  \code{googleDriveFolder} is not present then the \code{id} of the parent folder is returned with \code{isfound} = F
 \item{id}{Drive-id for either the parent or child folder}
 \item{isfound}{Boolean. Absence (F) or presence (T) of the target folder}
 }
 \description{
-Checks to see if target folder is already present.
+Checks to see if folder is already present.
 }
 \examples{
-
 \dontrun{
-Check if "Testing/SampleRun" folder has already been created.
-gd_exists("Testing/SampleRun",atlantisdrive::rootid)
-
+gd_exists(googledriveFolder="Testing/SampleRun", rootid=atlantisdrive::rootid)
 }
-
-
 
 }
 \seealso{
 Other atlantisdrive functions: 
-\code{\link{get_dirs}()},
-\code{\link{get_files}()},
+\code{\link{get_file_list}()},
 \code{\link{list_atlantisom_files}()},
 \code{\link{list_core_files}()},
 \code{\link{pull_from_drive}()},

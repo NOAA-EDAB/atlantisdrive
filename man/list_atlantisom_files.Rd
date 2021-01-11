@@ -29,8 +29,7 @@ list_atlantisom_files(scenario="outputCCV3")
 \seealso{
 Other atlantisdrive functions: 
 \code{\link{gd_exists}()},
-\code{\link{get_dirs}()},
-\code{\link{get_files}()},
+\code{\link{get_file_list}()},
 \code{\link{list_core_files}()},
 \code{\link{pull_from_drive}()},
 \code{\link{push_to_drive}()}

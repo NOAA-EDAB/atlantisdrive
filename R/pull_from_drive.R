@@ -1,4 +1,4 @@
-#' Renames, moves output files from google Drive to local machine
+#' Renames, moves output files from Google Drive to local machine
 #'
 #' Used for pulling archived Atlantis runs into the users workspace.
 #'
