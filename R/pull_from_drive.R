@@ -32,20 +32,21 @@
 
 pull_from_drive <- function(localPath=here::here(),fileList,googledriveFolder,rootid=atlantisdrive::rootid){
 
-  # Detect folders ----------------------------------------------------------
+  # check if local folder is present
+  if (!file.exists(localPath)){
+    dir.create(localPath)
+    message("Directory created:",localPath)
+  }
 
-  # list the folders
-  atlantisFiles <- googledrive::drive_ls(rootid)
+  # Detect folders on google drive ----------------------------------------------------------
+  target <- gd_exists(googledriveFolder,rootid)
 
   # check to see if folder is present
-  if (any(googledriveFolder %in% atlantisFiles$name)) {
+  if (target$isfound) {
     message("Folder: ",googledriveFolder, "... found")
 
-    # get id to googledriveFolder
-    atlantisid <- atlantisFiles %>% dplyr::filter(name == googledriveFolder) %>%
-      dplyr::select(id) %>%
-      unlist() %>%
-      googledrive::as_id(id)
+    # get id to gogledriveFolder
+    atlantisid <- target$id
 
   } else { # ask if need to create folder
     message(paste0("\n Folder: ",googledriveFolder, "... NOT found."))
@@ -55,10 +56,19 @@ pull_from_drive <- function(localPath=here::here(),fileList,googledriveFolder,ro
 
   # Pull files from drive ---------------------------------------------------
 
-  # store list of files not present on drive
+  # store list of files present on drive in googleDriveFolder
   allFiles <- googledrive::drive_ls(atlantisid)
 
-  if (length(fileList) > 1) { # fileList will be a list of files
+  if(is.null(fileList)) { # pull all files
+
+    for (ids in 1:length(allFiles$id)) {
+      filename <- allFiles$name[ids]
+      fid <- allFiles$id[ids]
+
+      googledrive::drive_download(googledrive::as_id(fid),path=file.path(localPath,filename),overwrite=T)
+    }
+
+  } else if (length(fileList) > 1) { # fileList will be a list of files
 
     for (afile in fileList) {
       filenameDribble <- allFiles %>% dplyr::filter(grepl(pattern=afile,name))
@@ -68,8 +78,8 @@ pull_from_drive <- function(localPath=here::here(),fileList,googledriveFolder,ro
       googledrive::drive_download(googledrive::as_id(fid),path=file.path(localPath,filename),overwrite=T)
     }
 
-   } else if (length(fileList) == 1) {
-    # single file or a pattern to search
+   } else if (length(fileList) == 1) {  # single file or a pattern to search
+
     filesToPull <- allFiles %>% dplyr::filter(grepl(pattern=fileList,name))
 
     for (fid in filesToPull$id) {
