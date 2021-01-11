@@ -4,9 +4,14 @@
 \alias{push_to_drive}
 \title{Pushes Atlantis output files to google Drive}
 \usage{
-push_to_drive(id = NULL, localPath = here::here("output"),
-  fileList = NULL, googledriveFolder = "Development",
-  rootid = atlantisdrive::rootid, overwrite = FALSE)
+push_to_drive(
+  id = NULL,
+  localPath = here::here("output"),
+  fileList = NULL,
+  googledriveFolder = "Development",
+  rootid = atlantisdrive::rootid,
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{id}{Character string. A prefix to be added to the name of all uploaded files. The name of task/scenario/id associated with output. Defualt = NULL (No prefix)}
@@ -55,10 +60,12 @@ push_to_drive(localPath = here::here("test"), fileList = NA, googledriveFolder =
 
 }
 \seealso{
-Other atlantisdrive functions: \code{\link{get_dirs}},
-  \code{\link{get_files}},
-  \code{\link{list_atlantisom_files}},
-  \code{\link{list_core_files}},
-  \code{\link{pull_from_drive}}
+Other atlantisdrive functions: 
+\code{\link{gd_exists}()},
+\code{\link{get_dirs}()},
+\code{\link{get_files}()},
+\code{\link{list_atlantisom_files}()},
+\code{\link{list_core_files}()},
+\code{\link{pull_from_drive}()}
 }
 \concept{atlantisdrive functions}

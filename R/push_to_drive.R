@@ -45,19 +45,14 @@
 
 push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,googledriveFolder="Development", rootid=atlantisdrive::rootid, overwrite = FALSE){
 
-  # Detect/create folders ---------------------------------------------------
-  # list the folders
-  atlantisFiles <- googledrive::drive_ls(rootid)
+  # Check Target folder presence ---------------------------------------------------
+  target <- gd_exists(googledriveFolder,rootid)
 
-  # check to see if folder is present
-  if (any(googledriveFolder %in% atlantisFiles$name)) {
-    message("Folder: ",googledriveFolder, "... found")
+  # do based on presence
+    if (target$isfound) {
+      message("Folder: ",googledriveFolder, "... found")
 
-    # get id to googledriveFolder
-    atlantisid <- atlantisFiles %>% dplyr::filter(name == googledriveFolder) %>%
-      dplyr::select(id) %>%
-      unlist() %>%
-      googledrive::as_id(id)
+      atlantisid <- target$id
 
   } else { # ask if need to create folder
     message(paste0("\n Folder: ",googledriveFolder, "... NOT found."))
@@ -66,13 +61,14 @@ push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,
       stop("Aborted without any changes being made")
     } else {
 
-    newFolder <- googledrive::drive_mkdir(name=googledriveFolder,path=googledrive::as_id(atlantisRootid))
+      # create folder
+      newFolder <- googledrive::drive_mkdir(name=googledriveFolder)
 
-    # get id to googledriveFolder
-    atlantisid <- newFolder %>%
-      dplyr::select(id) %>%
-      unlist() %>%
-      googledrive::as_id(id)
+      # get id to new googledriveFolder
+      atlantisid <- newFolder %>%
+        dplyr::select(id) %>%
+        unlist() %>%
+        googledrive::as_id(id)
     }
 
   }
@@ -80,9 +76,11 @@ push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,
   # Push Files to Drive ----------------------------------------------------
   # check if already present. overwrite?
   # store list of files not pushed
+
+
   if (is.null(fileList)) {# push all files
     filesToPush <- list_core_files(path = localPath)
-  } else if (is.na(fileList)) {
+  } else if (any(is.na(fileList))) {
     filesToPush <- list.files(path = localPath)
   } else if (length(fileList) == 1) { #either a single file or a string
     allFiles <- list.files(path = localPath)
@@ -94,11 +92,13 @@ push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,
   filesNotPushed <- NULL
   for (afile in filesToPush) {
     uploadFile <- file.path(localPath,afile)
+    # check to append scenario name
     if (is.null(id)) {
       newName <- afile
     } else{
       newName <- paste0(id,"_",afile)
     }
+    # push data
     result <- tryCatch(
       {
         googledrive::drive_upload(uploadFile, path = atlantisid, name = newName, overwrite = overwrite)
@@ -115,7 +115,7 @@ push_to_drive <- function(id=NULL, localPath=here::here("output"),fileList=NULL,
     }
   }
 
-  # set permission on files. Maybe unneccessary
+  # set permission on files. Maybe unnecessary
   return(filesNotPushed)
 
 }
