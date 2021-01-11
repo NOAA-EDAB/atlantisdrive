@@ -4,8 +4,10 @@
 \alias{list_core_files}
 \title{List of Core files used in Atlantis}
 \usage{
-list_core_files(path = here::here(), filesToInclude = c("txt", "nc",
-  "ts", "xml", "bgm"))
+list_core_files(
+  path = here::here(),
+  filesToInclude = c("txt", "nc", "ts", "xml", "bgm")
+)
 }
 \arguments{
 \item{path}{Character string. Path to location of atlantis output files}
@@ -30,10 +32,12 @@ list_core_files(path=here::here("test"),filesToInclude=c("xml","ts"))
 
 }
 \seealso{
-Other atlantisdrive functions: \code{\link{get_dirs}},
-  \code{\link{get_files}},
-  \code{\link{list_atlantisom_files}},
-  \code{\link{pull_from_drive}},
-  \code{\link{push_to_drive}}
+Other atlantisdrive functions: 
+\code{\link{gd_exists}()},
+\code{\link{get_dirs}()},
+\code{\link{get_files}()},
+\code{\link{list_atlantisom_files}()},
+\code{\link{pull_from_drive}()},
+\code{\link{push_to_drive}()}
 }
 \concept{atlantisdrive functions}

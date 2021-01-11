@@ -23,10 +23,12 @@ get_dirs()
 
 }
 \seealso{
-Other atlantisdrive functions: \code{\link{get_files}},
-  \code{\link{list_atlantisom_files}},
-  \code{\link{list_core_files}},
-  \code{\link{pull_from_drive}},
-  \code{\link{push_to_drive}}
+Other atlantisdrive functions: 
+\code{\link{gd_exists}()},
+\code{\link{get_files}()},
+\code{\link{list_atlantisom_files}()},
+\code{\link{list_core_files}()},
+\code{\link{pull_from_drive}()},
+\code{\link{push_to_drive}()}
 }
 \concept{atlantisdrive functions}

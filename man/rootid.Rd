@@ -4,7 +4,9 @@
 \name{rootid}
 \alias{rootid}
 \title{rootid: google drive root id}
-\format{drive_id}
+\format{
+drive_id
+}
 \usage{
 rootid
 }
