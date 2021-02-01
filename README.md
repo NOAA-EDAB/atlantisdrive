@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 ![deploy to github
-pages](https://github.com/andybeet/atlantisdrive/workflows/deploy%20to%20github%20pages/badge.svg)
+pages](https://github.com/NOAA-EDAB/atlantisdrive/workflows/deploy%20to%20github%20pages/badge.svg)
 ![Install on
 windows](https://github.com/NOAA-EDAB/atlantisdrive/workflows/Install%20on%20windows/badge.svg)
 ![gitleaks](https://github.com/NOAA-EDAB/atlantisdrive/workflows/gitleaks/badge.svg)
