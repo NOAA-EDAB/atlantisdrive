@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 ![deploy to github pages](https://github.com/andybeet/atlantisdrive/workflows/deploy%20to%20github%20pages/badge.svg)
+![Install on windows](https://github.com/NOAA-EDAB/atlantisdrive/workflows/Install%20on%20windows/badge.svg)
+![gitleaks](https://github.com/NOAA-EDAB/atlantisdrive/workflows/gitleaks/badge.svg)
 <!-- badges: end -->
 
 Tools for moving Atlantis files to and from Google drive
@@ -24,7 +26,7 @@ Tools for moving Atlantis files to and from Google drive
 ## Installation
 
 ``` r
-remotes::install_github("andybeet/atlantisdrive")
+remotes::install_github("NOAA-EDAB/atlantisdrive")
 ```
 
 ## Usage
@@ -60,6 +62,19 @@ To push all files containing the string "xml" from your "output" folder in your 
 ```{r, echo=T , eval = F}
 push_to_drive(id="climate", localPath=here::here("output"), fileList="xml", googledriveFolder="Testing/Example", rootid=atlantisdrive::rootid, overwrite = TRUE)
 ```
+
+## Contact
+
+| [andybeet](https://github.com/andybeet)        
+| ----------------------------------------------------------------------------------------------- 
+| [![](https://avatars1.githubusercontent.com/u/22455149?s=100&v=4)](https://github.com/andybeet) | 
+
+## Contributors (alphabetical order)
+
+
+| [jcaracappa1](https://github.com/jcaracappa1)                                                         | [sgaichas](https://github.com/sgaichas)                                                        | [gambler1650](https://github.com/gambler1650)                                                     | [slarge](https://github.com/slarge)                                                           | 
+| ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | 
+|  [![](https://avatars1.githubusercontent.com/u/57966543?s=100&v=4)](https://github.com/jcaracappa1) | [![](https://avatars1.githubusercontent.com/u/8172302?s=100&v=4)](https://github.com/sgaichas) | [![](https://avatars1.githubusercontent.com/u/5949383?s=100&v=4)](https://github.com/gambler1650) | [![](https://avatars1.githubusercontent.com/u/5000131?s=100&v=4)](https://github.com/slarge) | 
 
 #### Legal disclaimer
 
