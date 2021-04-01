@@ -31,6 +31,13 @@ remotes::install_github("NOAA-EDAB/atlantisdrive")
 
 ## Usage
 
+To run Atlantis the command takes on the form like:
+
+`atlantisMerged -i neus_init.nc 0 -o neus_output.nc -r at_run.prm -f at_force_LINUX.prm -p at_physics.prm -b at_biology.prm -h at_harvest.prm -e at_economics.prm -s neus_groups.csv -q neus_fisheries.csv -t . -d output`
+
+where `neus_output.nc` is the main output file. The prefix `neus_output` is prepended to all Atlantis output files.
+
+
 ```{r}
 library(atlantisdrive)
 ```
