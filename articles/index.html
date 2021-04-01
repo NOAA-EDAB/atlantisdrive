@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get list of files with a directory on Google drive — get_file_list • atlantisdrive</title>
+<title>Articles • atlantisdrive</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,7 @@
 
 
 
-<meta property="og:title" content="Get list of files with a directory on Google drive — get_file_list" />
-<meta property="og:description" content="Lists all files under a directory on Google drive folder" />
+<meta property="og:title" content="Articles" />
 
 
 
@@ -59,7 +58,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-article-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -106,63 +105,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get list of files with a directory on Google drive</h1>
-    
-    <div class="hidden name"><code>get_file_list.Rd</code></div>
+      <h1>Articles</h1>
     </div>
 
-    <div class="ref-description">
-    <p>Lists all files under a directory on Google drive folder</p>
+    <div class="section ">
+      <h3>All vignettes</h3>
+      <p class="section-desc"></p>
+
+      <dl>
+        <dt><a href="atlantisdrive.html">atlantisdrive</a></dt>
+        <dd></dt>
+      </dl>
     </div>
-
-    <pre class="usage"><span class='fu'>get_file_list</span><span class='op'>(</span>rootid <span class='op'>=</span> <span class='fu'>atlantisdrive</span><span class='fu'>::</span><span class='va'>rootid</span>, targetDir <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>rootid</th>
-      <td><p>Drive-id. The id to the root Atlantis Folder</p></td>
-    </tr>
-    <tr>
-      <th>targetDir</th>
-      <td><p>Character. Path to a directory. Default = NULL - returns all files in root</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A tibble containing file name details</p>
-<dt>name</dt><dd><p>Folder/filename</p></dd>
-<dt>id</dt><dd><p>Drive id of folder/filename</p></dd>
-<dt>drive_resource</dt><dd><p>list of 33 objects defind in [googledrive](drive_ls)</p></dd>
-
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other atlantisdrive functions: 
-<code><a href='gd_exists.html'>gd_exists</a>()</code>,
-<code><a href='list_atlantisom_files.html'>list_atlantisom_files</a>()</code>,
-<code><a href='list_core_files.html'>list_core_files</a>()</code>,
-<code><a href='pull_from_drive.html'>pull_from_drive</a>()</code>,
-<code><a href='push_to_drive.html'>push_to_drive</a>()</code></p></div>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># get list of files in the Scenario folder under the root</span>
-<span class='fu'>get_file_list</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"Testing/Model1"</span><span class='op'>)</span>
-<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"Scenario"</span><span class='op'>)</span>
-<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"Scen"</span><span class='op'>)</span>
-<span class='fu'>get_file_list</span><span class='op'>(</span>targetDir <span class='op'>=</span> <span class='st'>"ario"</span><span class='op'>)</span>
-
-<span class='op'>}</span>
-
-</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <nav id="toc" data-toggle="toc" class="sticky-top">
-      <h2 data-toc-skip>Contents</h2>
-    </nav>
   </div>
 </div>
 
