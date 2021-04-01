@@ -1,0 +1,76 @@
+---
+title: "atlantisdrive"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{atlantisdrive}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(atlantisdrive)
+```
+
+The idea behind `atlantisdrive` is to allow a user to select groups of files produced by Atlantis, add a naming convention, and push them to google drive in a systematic way. All the user requires, is the `id` of the root folder on google drive and authentication credentials to access the folder. Google drive then becomes an organized repository for Atlantis output. Others can then use `atlantisdrive` to pull output, after which they can use `atlantisom` and/or `atlantisdiagnostics` to explore the model run output.
+
+## Example
+
+We first run Atlantis (on Linux) using:
+
+``` r
+atlantisMerged -i neus_init.nc 0 -o neus_output.nc -r at_run.prm -f at_force_LINUX.prm 
+-p at_physics.prm -b at_biology.prm -h at_harvest.prm -e at_economics.prm -s neus_groups.csv
+-q neus_fisheries.csv -t . -d outputDir
+```
+
+The `neus_itit.nc` file, the `.prm` and `csv` files are input files to the model. The `neus_output.nc` is the name of the main output file and the text string `neus_output` is used as a prefix to many of the output files. `outputDir` is the name or path to the directory where all output will be saved.
+
+A typical run will output core files with the extensions:
+
+1.    txt
+1.    ts
+1.    xml
+1.    nc
+
+All of the "txt" and "nc" files are prefixed with `neus_output` (in general the prefix string is the name of the output file)
+
+We now want to push all of these core files to google drive for archiving and/or sharing with others. We can achieve this in a couple of steps.
+
+1. Define the path to the output on the local machine
+
+For example:
+
+```{r eval = FALSE}
+localPath <- here::here("outputFolder")
+```
+
+2. Get the names of the core files to push to google drive
+
+```{r eval = FALSE}
+coreFiles <- atlantisdrive::list_core_files(localPath)
+```
+
+3. Obtain the root id of google drive and authenticate ones self
+
+```{r eval = FALSE}
+# this is a ficticious number
+rootid <- "23kcfkn3vjk56ivknk44nkcn4985c"
+```
+
+4. Push files to google drive
+
+For example, push to `myWork` folder (you will be prompted to create the folder if it doesn't exist)
+
+```{r eval = FALSE}
+atlantisdrive::push_to_drive(rootid=rootid,localPath = localPath,googledriveFolder = "myWork")
+
+```
+
+
