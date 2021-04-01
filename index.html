@@ -75,24 +75,26 @@
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>To run Atlantis the command takes on the form like:</p>
-<p><code>atlantisMerged -i neus_init.nc 0 -o neus_output.nc -r at_run.prm -f at_force_LINUX.prm -p at_physics.prm -b at_biology.prm -h at_harvest.prm -e at_economics.prm -s neus_groups.csv -q neus_fisheries.csv -t . -d output</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>atlantisMerged <span class="op">-</span>i neus_init.nc <span class="dv">0</span> <span class="op">-</span>o neus_output.nc <span class="op">-</span>r at_run.prm <span class="op">-</span>f at_force_LINUX.prm </span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="op">-</span>p at_physics.prm <span class="op">-</span>b at_biology.prm <span class="op">-</span>h at_harvest.prm <span class="op">-</span>e at_economics.prm <span class="op">-</span>s neus_groups.csv</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="op">-</span>q neus_fisheries.csv <span class="op">-</span>t . <span class="op">-</span>d output</span></code></pre></div>
 <p>where <code>neus_output.nc</code> is the main output file. The prefix <code>neus_output</code> is prepended to all Atlantis output files.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">atlantisdrive</span><span class="op">)</span></code></pre></div>
 <p>To view the list of files/folders under the root folder (as defined by <code>id</code>) on Google drive use</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/get_file_list.html">get_file_list</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="reference/get_file_list.html">get_file_list</a></span><span class="op">(</span>targetDir <span class="op">=</span> <span class="st">"Development"</span><span class="op">)</span>
 <span class="fu"><a href="reference/get_file_list.html">get_file_list</a></span><span class="op">(</span>targetDir <span class="op">=</span> <span class="st">"Development/Example"</span><span class="op">)</span></code></pre></div>
 <p>To pull all files containing the string “ATLNT” from the “Development” folder to your local machine (Note: partial matches to file names are allowed)</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pull_from_drive.html">pull_from_drive</a></span><span class="op">(</span>localPath<span class="op">=</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>,fileList<span class="op">=</span><span class="st">"ATLNT"</span>,googledriveFolder<span class="op">=</span><span class="st">"Development"</span><span class="op">)</span></code></pre></div>
 <p>To push all files from your “output” folder in your current working directory to the “Testing/Example” folder on Google drive (Note: partial matches to file names are allowed). All files are overwritten.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/push_to_drive.html">push_to_drive</a></span><span class="op">(</span>id<span class="op">=</span><span class="cn">NULL</span>, localPath<span class="op">=</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"output"</span><span class="op">)</span>, fileList<span class="op">=</span><span class="cn">NULL</span>, googledriveFolder<span class="op">=</span><span class="st">"Testing/Example"</span>, rootid<span class="op">=</span><span class="fu">atlantisdrive</span><span class="fu">::</span><span class="va">rootid</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Note: special case when <code>fileList = NULL</code>. All Atlantis core files are pushed.</p>
 <p>To push all files containing the string “xml” from your “output” folder in your current working directory to the “Testing/Example” folder on Google drive. Appends the string “climate” to beginning of all files</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/push_to_drive.html">push_to_drive</a></span><span class="op">(</span>id<span class="op">=</span><span class="st">"climate"</span>, localPath<span class="op">=</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"output"</span><span class="op">)</span>, fileList<span class="op">=</span><span class="st">"xml"</span>, googledriveFolder<span class="op">=</span><span class="st">"Testing/Example"</span>, rootid<span class="op">=</span><span class="fu">atlantisdrive</span><span class="fu">::</span><span class="va">rootid</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="contact" class="section level2">
